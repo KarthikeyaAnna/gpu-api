@@ -1,0 +1,27 @@
+# Security credentials
+.gpu_api_key*
+*.key
+*.pem
+*.env
+
+# Runtime daemon state
+server.pid
+jobs.json
+server.log
+logs/
+scripts/agent_job_*.py
+scripts/snippet_*.py
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Scratch & temporary
+test_tmp/
+.DS_Store
