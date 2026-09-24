@@ -20,8 +20,13 @@ echo "================================================================"
 mkdir -p "${LOGS_DIR}" "${SCRIPTS_DIR}"
 echo "✓ Directories initialized at ${TARGET_DIR}"
 
-# 2. Copy server script
-cp "${DIR}/gpu_server.py" "${TARGET_DIR}/gpu_server.py"
+# 2. Install server script
+if [ -f "${DIR}/gpu_server.py" ]; then
+  cp "${DIR}/gpu_server.py" "${TARGET_DIR}/gpu_server.py"
+else
+  echo "Downloading gpu_server.py from GitHub..."
+  curl -sSL "https://raw.githubusercontent.com/KarthikeyaAnna/gpu-api/main/gpu_server.py" -o "${TARGET_DIR}/gpu_server.py"
+fi
 chmod +x "${TARGET_DIR}/gpu_server.py"
 echo "✓ Installed ${TARGET_DIR}/gpu_server.py"
 
